@@ -5,10 +5,10 @@ dotenv.config();
 const JWT_SECRET:string = process.env.JWT_SECRET||"";
 export const getPayload = async(token:string) => {
     try {
-        const {email} = await jwt.verify(token, JWT_SECRET) as {
-            email: string
+        const {objectId} = await jwt.verify(token, JWT_SECRET) as {
+            objectId: string
         };
-        return email;
+        return objectId;
     } catch (error) {
         console.log(`Some Error occured : \n` , error);
     }

@@ -1,8 +1,8 @@
 import express from 'express'
-import { handleRegister } from '../controllers/register.controller';
-import { loginHandle } from '../controllers/login.controller';
-import { logoutHandle } from '../controllers/logout.controller';
-import { profileHandle } from '../controllers/profile.controller';
+import { handleRegister } from '../controllers/user.controller';
+import { loginHandle } from '../controllers/user.controller';
+import { logoutHandle } from '../controllers/user.controller';
+import { profileHandle } from '../controllers/user.controller';
 import { isLoggedIn } from '../middlewares/isLoggedIn';
 
 const app = express();

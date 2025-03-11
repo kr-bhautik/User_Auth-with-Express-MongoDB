@@ -15,13 +15,14 @@ export const isLoggedIn = async(req:Request, res:Response, next:NextFunction) =>
         return;
     }
 
-    const email  = await getPayload(req.cookies.token);
-    const user = await userModel.findOne({email});
+    const objectId  = await getPayload(req.cookies.token);
+    const user = await userModel.findOne({_id: objectId});
     if(!user) {
         res.status(400).send({
             status: "failure",
             message: "Login first."
         })
+        return;
     }
     req.userInfo = user as userInteface;
     next();
