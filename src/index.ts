@@ -3,7 +3,7 @@ import { userRouter } from './routes/user.route';
 import dotenv from 'dotenv'
 import { connection } from './db/connection';
 import cookieParser from 'cookie-parser';
-import { getUsersHandle } from './controllers/getAllUsers.controller';
+import { getPaginatedUsersHandle, getUsersHandle } from './controllers/getAllUsers.controller';
 
 dotenv.config();
 connection()
@@ -23,4 +23,5 @@ app.listen(PORT, () => {
 })
 
 app.use('/user', userRouter);
-app.get('/users', getUsersHandle)
+app.get('/allusers', getUsersHandle)
+app.get('/allusers/:page', getPaginatedUsersHandle);
